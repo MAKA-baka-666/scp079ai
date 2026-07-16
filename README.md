@@ -1,0 +1,2 @@
+# scp079
+用vivecoding做出来的一个简单的模拟079的python程序
