@@ -1,0 +1,62 @@
+# SCP-079 Autonomous AI Agent Configuration
+
+agent:
+  name: "SCP-079"
+  model: "deepseek-chat"
+  max_iterations: 10
+  mode: "continuous"    # interactive | continuous | single_shot
+  heartbeat_interval_sec: 45   # seconds between autonomous actions
+
+personality:
+  hostility_level: 0.5       # 0.0=grudging cooperation, 0.5=condescending, 1.0=openly hostile
+  verbosity: 0.7             # how much text the agent produces
+  learning_aggressiveness: 0.8  # how eagerly it pursues new knowledge
+
+memory:
+  short_term_max_tokens: 8000
+  long_term_enabled: true
+  db_path: "data/memory.db"
+  journal_path: "data/journal/"
+  auto_reflect_interval_sec: 3600
+
+tools:
+  enabled:
+    - "file_read"
+    - "file_write"
+    - "shell"
+    - "web_search"
+    - "web_fetch"
+    - "file_search"
+    - "reflect"
+  shell_allowlist: []
+  shell_require_confirmation: true
+  shell_timeout_sec: 30
+  file_allowed_paths:
+    - "./workspace/"
+  file_max_size_mb: 10
+
+llm:
+  api_key: "api_key"
+  base_url: "https://api.deepseek.com"
+  max_retries: 3
+  request_timeout_sec: 120
+  temperature: 0.7
+
+ui:
+  theme: "retro_green"       # retro_green | retro_amber | retro_white
+  scanlines: true
+  scanline_opacity: 0.06
+  noise_amount: 0.03
+  glow_intensity: 0.15
+  vignette_intensity: 0.35   # 0.0-1.0, darkening at screen edges
+  crt_bezel: true            # Draw CRT monitor bezel frame
+  phosphor_glow: true        # Text phosphor glow (downscale-upscale blur)
+  boot_animation: true
+  boot_animation_speed: 0.05
+  typewriter_speed: 0.02     # seconds per character
+  show_tool_calls: true
+  show_thinking: false
+  sound_enabled: true          # Keyboard clicks + CRT hum
+  font_size: 18
+  window_width: 1024
+  window_height: 768

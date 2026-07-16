@@ -1,0 +1,31 @@
+[project]
+name = "scp079"
+version = "0.1.0"
+description = "SCP-079 Autonomous AI Agent — A sentient microcomputer containment simulation"
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=1.0.0",
+    "pygame>=2.5.0",
+    "pyyaml>=6.0",
+]
+readme = {text = "SCP-079: A sentient Exidy Sorcerer microcomputer AI agent.", content-type = "text/plain"}
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+web = [
+    "httpx>=0.25.0",
+    "beautifulsoup4>=4.12.0",
+    "duckduckgo-search>=4.0.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+scp079 = "src.main:main"
+
+[build-system]
+requires = ["setuptools>=70.0"]
+build-backend = "setuptools.build_meta"
